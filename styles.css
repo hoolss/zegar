@@ -1,0 +1,72 @@
+.timer {
+    font-size: 7rem;
+    margin: 20px;
+    color: green;
+    text-align: center;
+}
+
+.stations {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;  /* Dodajemy tę właściwość */
+}
+
+.station {
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #eee;
+    width: 120px;     /* Dodajemy stałą szerokość */
+    height: 50px;     /* Dodajemy stałą wysokość */
+    display: flex;    /* Poniższe trzy właściwości są używane do wyśrodkowania tekstu w przycisku */
+    align-items: center;
+    justify-content: center;
+}
+
+.station.completed {
+    background-color: green;
+    color: white;
+}
+.current-time {
+    font-size: 5rem;
+    margin: 20px;
+    
+}
+.timer-controls {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie elementów w poziomie */
+    align-items: center;     /* Wyśrodkowanie elementów w pionie (opcjonalnie) */
+    gap: 10px;               /* Odstęp między przyciskami */
+}
+.set-time {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+.box {
+    border: 2px solid black;   /* Ramka wokół boxa */
+    padding: 20px;             /* Odstęp wewnętrzny */
+    margin: 20px auto;         /* Odstęp zewnętrzny i wyśrodkowanie */
+    text-align: center;        /* Wyśrodkowanie tekstu w boxie */
+    width: fit-content;        /* Szerokość dostosowana do zawartości */
+}
+
+h2 {
+    margin-bottom: 15px;       /* Odstęp pod nagłówkiem */
+}
+
+.current-time {
+    font-size: 2rem;
+    margin: 20px;
+    text-align: center;
+    color: black;
+}
+
+.timer {
+    font-size: 3rem;
+    margin: 20px;
+    color: green;
+}
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Takt Time Licznik</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="box">
+    <h2>ZEGAR</h2>
+    <div class="current-time" id="currentTime">
+        00:00:00
+    </div>
+    <div class="box">
+    <h2>LICZNIK TAKT TIME</h2>
+    <div class="timer">
+        <span id="minutes">05</span>:<span id="seconds">00</span>
+    </div>
+    </div>
+    <div class="timer-controls">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="resetTimer()">Reset</button>
+    </div>
+    <div class="set-time">
+    <label for="setMinutes">Ustaw minuty: </label>
+    <input type="number" id="setMinutes" value="5">
+    <button onclick="setTime()">Ustaw czas</button>
+    </div>
+
+
+    <!-- Przykładowe stanowiska dla operatorów -->
+    <div class="stations">
+        <button class="station" onclick="markAsDone(1)">Stanowisko 1</button>
+        <button class="station" onclick="markAsDone(2)">Stanowisko 2</button>
+        <button class="station" onclick="markAsDone(3)">Stanowisko 3</button>
+	<button class="station" onclick="markAsDone(4)">Stanowisko 4</button>
+        <button class="station" onclick="markAsDone(5)">Stanowisko 5</button>
+        <button class="station" onclick="markAsDone(6)">Stanowisko 6</button>
+	<button class="station" onclick="markAsDone(7)">Stanowisko 7</button>
+        <button class="station" onclick="markAsDone(8)">Stanowisko 8</button>
+        <button class="station" onclick="markAsDone(9)">Stanowisko 9</button>
+	<button class="station" onclick="markAsDone(10)">Stanowisko 10</button>
+        <button class="station" onclick="markAsDone(11)">Stanowisko 11</button>
+        <button class="station" onclick="markAsDone(12)">Stanowisko 12</button>
+	<button class="station" onclick="markAsDone(13)">Stanowisko 13</button>
+        <button class="station" onclick="markAsDone(14)">Stanowisko 14</button>
+        <button class="station" onclick="markAsDone(15)">Stanowisko 15</button>
+	<button class="station" onclick="markAsDone(16)">Stanowisko 16</button>
+        <button class="station" onclick="markAsDone(17)">Stanowisko 17</button>
+        <button class="station" onclick="markAsDone(18)">Stanowisko 18</button>
+	<button class="station" onclick="markAsDone(19)">Stanowisko 19</button>
+        <button class="station" onclick="markAsDone(20)">Stanowisko 20</button>
+        <button class="station" onclick="markAsDone(21)">Stanowisko 21</button>
+        <button class="station" onclick="markAsDone(22)">Stanowisko 22</button>
+        <button class="station" onclick="markAsDone(23)">Stanowisko 23</button>
+	<button class="station" onclick="markAsDone(24)">Stanowisko 24</button>
+	<button class="station" onclick="markAsDone(25)">Stanowisko 25</button>
+        <!-- ... więcej stanowisk według potrzeb -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
