@@ -1,24 +1,34 @@
 let totalStations = document.querySelectorAll('.station').length;
 let completedStations = 0;
 let timer;
-let minutes = 5;
+let minutes = parseInt(document.getElementById('setMinutes').value) || 5;
 let seconds = 0;
+
+let negativeMinutes = 0;
+let negativeSeconds = 0;
 
 function startTimer() {
     timer = setInterval(() => {
-        if(seconds === 0) {
-            if(minutes === 0) {
-                clearInterval(timer);
-                return;
+        if (minutes === 0 && seconds === 0) {
+            if (negativeSeconds === 59) {
+                negativeMinutes += 1;
+                negativeSeconds = 0;
             } else {
+                negativeSeconds += 1;
+            }
+
+            document.getElementById('negativeMinutes').textContent = "-" + String(negativeMinutes).padStart(2, '0');
+            document.getElementById('negativeSeconds').textContent = String(negativeSeconds).padStart(2, '0');
+        } else {
+            if(seconds === 0) {
                 minutes -= 1;
                 seconds = 59;
+            } else {
+                seconds -= 1;
             }
-        } else {
-            seconds -= 1;
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     }, 1000);
 }
 
@@ -33,18 +43,27 @@ function markAsDone(stationNumber) {
         clearInterval(timer);
     }
 }
+
 function resetTimer() {
     clearInterval(timer);
-    minutes = 5;
+
+    let inputTime = parseInt(document.getElementById('setMinutes').value);
+    if (isNaN(inputTime) || inputTime <= 0) {
+        alert('Wprowadź prawidłową wartość czasu!');
+        return;
+    }
+    minutes = inputTime;
     seconds = 0;
     document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
     document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    
     completedStations = 0;
     let stationButtons = document.querySelectorAll('.station');
     stationButtons.forEach(button => {
         button.classList.remove('completed');
     });
 }
+
 function updateCurrentTime() {
     let now = new Date();
     let hours = String(now.getHours()).padStart(2, '0');
@@ -54,21 +73,15 @@ function updateCurrentTime() {
     document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-// Aktualizuj czas od razu po załadowaniu strony
-updateCurrentTime();
+updateCurrentTime();  // Aktualizuj czas od razu po załadowaniu strony
+setInterval(updateCurrentTime, 1000);  // Następnie aktualizuj co sekundę
 
-// Następnie aktualizuj co sekundę
-setInterval(updateCurrentTime, 1000);
 function setTime() {
     let inputMinutes = parseInt(document.getElementById('setMinutes').value);
-
-    // Sprawdzamy, czy wartość z inputa jest liczbą i czy jest większa od 0
     if (!isNaN(inputMinutes) && inputMinutes > 0) {
-        // Zaktualizuj wartości `minutes` i `seconds`
         minutes = inputMinutes;
         seconds = 0;
         
-        // Zaktualizuj wyświetlany czas
         document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
         document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     } else {

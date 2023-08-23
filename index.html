@@ -27,14 +27,18 @@
     <button onclick="setTime()">Ustaw czas</button>
     </div>
 
-
     <!-- Przykładowe stanowiska dla operatorów -->
     <div class="stations">
-        <button class="station" onclick="markAsDone(1)">Stanowisko 1</button>
+        <button class="station" onclick="markAsDone(1)">Zakończ etap</button>
         
         <!-- ... więcej stanowisk według potrzeb -->
     </div>
-
+    <div class="box">
+    <h2>LICZNIK UJEMNY</h2>
+    <div class="negative-timer">
+        <span id="negativeMinutes">00</span>:<span id="negativeSeconds">00</span>
+    </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
