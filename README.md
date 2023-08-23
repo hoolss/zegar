@@ -1,1 +1,1 @@
-# zegar
+# timer
